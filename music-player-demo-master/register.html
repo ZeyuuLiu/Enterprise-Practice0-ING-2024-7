@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>注册界面</title>
+  <link rel="stylesheet" href="./css/register.css">
+  <link rel="icon" href="./images/registerIco.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+
+<body>
+  <div class="main-window">
+    <div class="register-title">注册</div>
+    <!-- 注册标题 -->
+
+    <input type="text" class="username" id="username" placeholder="在此处输入注册用户名" />
+    <input type="text" class="user-email" id="userEmail" placeholder="在此输入注册邮箱" />
+    <input type="password" class="password" id="password" placeholder="在此处输入注册密码" />
+    <button type="submit" class="btn-submit" onclick="registerUser()">注册新用户</button>
+    <div class="check-container">
+      <p class="back-register" onclick="backToLogin()">返回登录</p>
+    </div>
+    <!-- 额外操作 -->
+
+  </div>
+  <!-- 注册界面 -->
+
+  <script src="./js/register.js"></script>
+  <!-- 与js文件连接 -->
+</body>
+</html>

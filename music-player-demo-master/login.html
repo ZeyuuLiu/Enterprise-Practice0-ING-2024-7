@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录</title>
+  <link rel="stylesheet" href="./css/login.css">
+  <link rel="icon" href="./images/loginIco.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+
+<body>
+
+  <div class="video-container">
+
+    <video muted autoplay loop class="background-video">
+      <source src="./music-videos/YOKU.mp4" type="video/mp4">
+    </video>
+    <!-- 背景视频播放配置 -->
+
+  </div>
+  <!-- 背景视频播放部分 -->
+
+  <div class="main-window">
+
+    <div class="register-title">登录</div>
+    <!-- 标题 -->
+
+    <input type="text" class="username" id="username" placeholder="在此处输入用户名">
+    <input type="password" class="password" id="password" placeholder="在此处输入密码">
+    <button type="submit" class="btn-submit" onclick="loginUser()">登录</button>
+    <div class="check-container">
+      <label for="checkbox" class="forget-password" onclick="forgetPassword()">忘记密码</label>
+      <p class="register-user" onclick="registerUser()">点我注册</p>
+    </div>
+    <!-- 额外操作 -->
+
+  </div> 
+  <!-- 登录界面 -->
+
+  <div class="set-password-window" id="set-password-window" style="display: none;">
+    <div class="set-password-title">重置密码</div>
+    <input type="text" class="set-username" id="oldUserName" placeholder="在此处输入您的用户名">
+    <input type="text" class="set-email" id="oldEmail" placeholder="在此处输入邮箱账号">
+    <input type="password" class="set-password" id="newPassWord" placeholder="在此处输入新密码">
+    <button type="submit" class="set-btn-submit" onclick="resetPassword()">重置</button>
+    <div class="check-container">
+      <p class="back-register" onclick="backToLogin()">返回登录</p>
+    </div>
+    <!-- 返回登录页面 -->
+
+  </div>
+  <!-- 重置密码 -->
+
+  <script src="./js/login.js"></script>
+  <!-- 相应的script函数 -->
+</body>
+</html>

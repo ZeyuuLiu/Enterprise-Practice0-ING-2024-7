@@ -1,0 +1,127 @@
+@font-face {
+  font-family: 'MaShanZheng';
+  src: url('../ttf/MaShanZheng-Regular.ttf') format('truetype');
+}
+/* 定义自定义字体 */
+
+body {
+  background: linear-gradient(to right, rgb(127, 127, 213), rgb(134, 168, 231), rgb(145, 234, 228));  /* 使用渐变背景颜色 */
+}
+/* 全局背景样式 */
+
+.main-window {
+  font-family: 'MaShanZheng', sans-serif;  /* 使用自定义字体，使界面更加美观 */
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);  /* 居中定位 */
+  width: 400px;
+  height: 450px;
+  background: linear-gradient(135deg, rgba(168, 237, 234, 0.8) 0%, rgba(254, 214, 227, 0.8) 100%);  /* 背景渐变色 */
+  border-radius: 20px;  /* 圆角边框 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* 阴影效果 */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;  /* 垂直居下 */
+  padding-bottom: 30px;
+  align-items: center;
+  z-index: 1000;  /* 在层级上位于最顶层 */
+}
+/* 登录窗口样式 */
+
+
+.register-title {
+  display: block;
+  margin-bottom: 40px;
+  font-size: 36px;
+}
+/* 登录窗口标题样式 */
+
+.username,
+.password,
+.user-email {
+  width: 300px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  padding: 0 15px;
+  margin: 10px 0;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);   /* 阴影效果 */
+  transition: all 0.3s ease;  /* 过渡效果 */
+}
+/* 输入框样式 */
+
+.username:focus,
+.password:focus,
+.user-email:focus {
+  border-color: #6200ea;  /* 聚焦时边框颜色 */
+  box-shadow: 0 2px 4px rgba(98, 0, 234, 0.2);  /* 聚焦时阴影效果 */
+}
+/* 输入框聚焦样式 */
+
+.username::placeholder,
+.password::placeholder,
+.user-email::placeholder {
+  color: #aaa;  /* 占位符文本颜色 */
+}
+/* 输入框占位符样式 */
+
+.username:hover,
+.password:hover,
+.user-email:hover {
+  border-color: #6200ea;  /* 悬停时边框颜色 */
+}
+/* 输入框悬停样式 */
+
+.btn-submit {
+  width: 335px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  padding: 0 15px;
+  margin: 10px 0;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* 阴影效果 */
+  background-color: #6200ea;
+  color: #fff;
+  transition: all 0.3s ease;  /* 过渡效果 */
+}
+/* 提交按钮样式 */
+
+.btn-submit:focus {
+  box-shadow: 0 2px 4px rgba(98, 0, 234, 0.2);  /* 阴影效果 */
+
+}
+/* 提交按钮样式 */
+
+.btn-submit:hover {
+  border-color: cadetblue;  /* 悬停时边框颜色 */
+  background-color: #a6b3ff;  /* 悬停时背景颜色 */
+}
+/* 提交按钮悬停样式 */
+
+.check-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 300px;
+  margin: 10px 0;
+}
+/* 额外操作功能样式 */
+
+.back-register {
+  cursor: pointer;  /* 光标样式为手型 */
+  margin-left: auto;
+  font-size: 14px;
+  color: black;
+}
+/* 返回登录功能样式 */
+
+.back-register:hover {
+  color: #6200ea;  /* 悬停时文本颜色 */
+  text-decoration: underline;
+  text-decoration-color: #6200ea;
+}
+/* 返回登录链接悬停样式 */

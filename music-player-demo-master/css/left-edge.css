@@ -1,0 +1,494 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --COLOR_MENU_BG: #FFF;
+    --FONT_COLOR_MI: #000;
+    --FONT_COLOR_MI_HOVER: #AB0202;
+    --COLOR_BG_MI_HOVER: #ECECEC;
+    --BORDER_RADIUS_MI: 15PX;
+    --TRANSITION_MENU_TIME: 0.2S;
+    --COLOR_LINE_BG: #D3D3D3;
+    --BUTTON_WIDTH:50PX;
+    --BUTTON_HEIGHT:29PX;
+    --TOGGLE_DIAMETER:25PX;
+    --BUTTON_TOGGLE_OFFSET:CALC((VAR(--BUTTON_HEIGHT) - VAR(--TOGGLE_DIAMETER)) / 2);
+    --TOGGLE_SHADOW_OFFSET:2PX;
+    --TOGGLE_WIDER:33.3PX;
+    --COLOR_GREY:#E9E9E9;
+    --COLOR_RED:#AB0202;
+}
+/* 白色主题 */
+
+.dark-theme {
+    --COLOR-BG: #E7E7E7;
+    --COLOR_MENU_BG: #232324;
+    --FONT_COLOR_MI: #C9CDD4;
+    --FONT_COLOR_MI_HOVER: #A5C9F8;
+    --COLOR_BG_MI_HOVER: #303030;
+    --BORDER_RADIUS_MI: 2PX;
+    --TRANSITION_MENU_TIME: 0.2S;
+    --COLOR_LINE_BG: #333333;
+    --BUTTON_WIDTH:50PX;
+    --BUTTON_HEIGHT:29PX;
+    --TOGGLE_DIAMETER:25PX;
+    --BUTTON_TOGGLE_OFFSET:CALC((VAR(--BUTTON_HEIGHT) - VAR(--TOGGLE_DIAMETER)) / 2);
+    --TOGGLE_SHADOW_OFFSET:2PX;
+    --TOGGLE_WIDER:33.3PX;
+    --COLOR_GREY:#1E1E1C;
+    --COLOR_RED:#A5C9F8;
+}
+/* 黑色主题 */
+
+body {
+    background-color: var(--COLOR_MENU_BG);
+    color: var(--FONT_COLOR_MI);
+    transition: background-color var(--TRANSITION_MENU_TIME), color var(--TRANSITION_MENU_TIME);
+}
+/* 主体 */
+
+.menu-box {
+    font-family: "Trebuchet MS", "楷体" ,  "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    position: relative;
+    width: fit-content;
+    min-height: 100vh;
+    padding: 6px 5px;
+    box-sizing: border-box;
+    background-color: var(--COLOR_MENU_BG);
+    border-radius: 15px;
+}
+/* 菜单栏 */
+
+.menu-box input[type="checkbox"] {
+    display: none;
+}
+/* 菜单栏按钮 */
+
+.menu-box>label {
+    position: absolute;
+    top: 48%;
+    right: 0;
+    transform: translateX(50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 4px 0px #000;
+    background-color: var(--COLOR_MENU_BG);
+    color: var(--font-color-mi);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+/* 菜单栏按钮设置 */
+
+.menu-box>label>i {
+    font-weight: 900;
+    text-indent: -3px;
+    font-size: 20px;
+    transition:var(--TRANSITION_MENU_TIME);
+    transform: rotate(0deg);
+}
+/* 菜单栏按钮动画 */
+
+.menu-box>label:hover {
+    box-shadow: 0px 0px 2px 0px #000;
+    color: var(--FONT_COLOR_MI_HOVER);
+}
+/* 菜单栏按钮动画 */
+
+.menu-box>input#menu-btn:hover+label>i {
+    transform: rotate(180deg);
+}
+/* 菜单栏按钮动画 */
+
+.menu-box>input#menu-btn:checked+label>i {
+    transform: rotate(0deg);
+}
+/* 菜单栏按钮动画 */
+
+.menu {
+    font-size: 18px;
+    width: 0px;
+    min-height: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    transition: width var(--TRANSITION_MENU_TIME);
+    color: var(--FONT_COLOR_MI);
+}
+/* 菜单整体设置 */
+
+.menu-box>input#menu-btn:checked~.menu {
+    width: 325px;
+}
+/* 菜单按钮呼出后宽度 */
+
+.menu-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* 菜单标题设置 */
+
+.menu-item>label{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-radius: var(--BORDER_RADIUS_MI);
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+/* 菜单栏副标题设置 */
+
+.menu-item>label:hover {
+    color: var(--FONT_COLOR_MI_HOVER);
+    cursor:pointer;
+    background-color: var(--COLOR_BG_MI_HOVER);
+}
+/* 菜单栏副标题动画 */
+
+.menu-item>label>i:first-child {
+    flex: none;
+    margin-right: 6px;
+    font-size: 24px;
+}
+/* 点击副标题的动画 */
+
+.menu-item>label>span {
+    flex: 1;
+}
+/* 菜单栏副标题设置间隔 */
+
+.menu-item>label>i:last-child {
+    flex: none;
+    font-size: 20px;
+    font-weight: 900;
+    transform: rotate(0deg);
+    transition:var(--TRANSITION_MENU_TIME);
+}
+/* 点击副标题后的效果 */
+
+.menu-item>input:checked+label>i:last-child {
+    transform: rotate(180deg);
+}
+/* 再次点击副标题的动画 */
+
+.recommends-part{
+    margin-top:30px;
+    background-color: #d3d3d3;
+    height:50%;
+    width:400%;
+
+}
+/* 推荐部分整体的初始化 */
+
+.recommends-list {
+    width: 100%;
+    height:100%;
+    display: flex;
+    flex-direction: row;
+    animation: move;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+/* 推荐图表的动画移动初始化 */
+
+.recommends-part>.recommends-list:hover{
+    cursor:pointer;
+    animation-play-state: paused;    
+}
+/* 推荐图标中的图片在hover状态下的处理 */
+
+.recommends-box{
+    position: relative;
+    margin:5px; 
+    width:250px;
+    height: 100% -5px;
+    padding: 5px;
+    transition: 1s;
+}
+/* 推荐图的初始化 */
+
+.recommends-box .img img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+/* 推荐图中的图片初始化 */
+
+.recommends-box .text{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    color:white;
+    z-index: 2;
+}
+/* 推荐图中的文字初始化 */
+
+.recommends-box .text h2{
+    font-size: 20px;
+    margin-bottom: 10px;
+    transform: translateY(300px);
+    transition: 1s;
+}
+/* 对于推荐图中小标题的初始设置 */
+
+.recommends-box:hover .text h2{
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+/* 对于推荐图中小标题的hover状态下的设置 */
+
+.recommends-box .text p{
+    font-size: 10px;
+    margin-bottom: 20px;
+    transform: translateY(300px);
+    transition: 1s;
+}
+/* 对于推荐图中字段的初始设置 */
+
+.recommends-box:hover .text p{
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+/* 对于推荐图中字段的hover状态下的设置 */
+
+.recommends-box:hover{
+    transform:scale(1.5);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    z-index:1;
+}
+/* 对推荐图整体在hover状态下的动态设置 */
+
+.menu-content {
+    height: 0;
+    overflow: hidden;
+    transition:var(--TRANSITION_MENU_TIME);
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--COLOR_MENU_BG);
+}
+/* 初始状态下菜单内容的设置 */
+
+.menu-item>input#menu-item1:checked~.menu-content {
+    height: 300px;
+    cursor:default;
+}
+
+.menu-item>input#menu-item2:checked~.menu-content {
+    height: calc(4 * 40px);
+}
+
+.menu-item>input#menu-item3:checked~.menu-content {
+    height: calc(3 * 40px);
+}
+/* 对于三个菜单副标题下内容的高度设置 */
+
+.menu-content>span {
+    width: 100%;
+    text-indent: 20px;
+    line-height: 40px;
+    border-radius: var(--BORDER_RADIUS_MI);
+    display: flex;
+    align-items: center;
+}
+/* 对于副标题下内容长度宽度以及位置的设置 */
+
+label{
+    display: flex;
+    align-items: center;
+}
+/* 设置副标题下内容的布局方式和位置 */
+
+.button-blur{
+    display: inline-block;
+    width: var(--BUTTON_WIDTH);
+    height: var(--BUTTON_HEIGHT);
+    background-color: var(--COLOR_GREY);
+    border-radius: calc(var(--BUTTON_HEIGHT) / 2);
+    position: relative;
+    margin-left: 50px;
+    transition: 0.2s all ease-in-out;
+}
+/* 模糊按钮的初始化 */
+
+.container-button{
+    display: flex;
+    align-items: center;
+}
+/* 按钮容器的布局方式和位置 */
+
+.button-blur::after{
+    content:"";
+    display:block;
+    width: var(--TOGGLE_DIAMETER);
+    height: var(--TOGGLE_DIAMETER);
+    background-color: #fff;
+    border-radius: calc(var(--TOGGLE_DIAMETER) / 2);
+    position: absolute;
+    top: var(--BUTTON_TOGGLE_OFFSET);
+    transform: translateX(var(--BUTTON_TOGGLE_OFFSET));
+    box-shadow:var(--TOGGLE_SHADOW_OFFSET) 0 calc(var(--TOGGLE_SHADOW_OFFSET) * 4) rgba(0, 0, 0, 0.3);
+    transition: 0.2s all ease-in-out;
+}
+/* 模糊按钮在点击后的动画效果 */
+
+.button-mode{
+    display: inline-block;
+    width: var(--BUTTON_WIDTH);
+    height: var(--BUTTON_HEIGHT);
+    background-color: var(--COLOR_GREY);
+    border-radius: calc(var(--BUTTON_HEIGHT) / 2);
+    position: relative;
+    margin-left: 100px;
+    transition: 0.2s all ease-in-out;
+}
+/* 暗黑模式按钮的初始化 */
+
+.container-background-button{
+    display: flex;
+    align-items: center;
+}
+/* 按钮容器的布局方式和位置 */
+
+.button-mode::after{
+    content:"";
+    display:block;
+    width: var(--TOGGLE_DIAMETER);
+    height: var(--TOGGLE_DIAMETER);
+    background-color: #fff;
+    border-radius: calc(var(--TOGGLE_DIAMETER) / 2);
+    position: absolute;
+    top: var(--BUTTON_TOGGLE_OFFSET);
+    transform: translateX(var(--BUTTON_TOGGLE_OFFSET));
+    box-shadow:var(--TOGGLE_SHADOW_OFFSET) 0 calc(var(--TOGGLE_SHADOW_OFFSET) * 4) rgba(0, 0, 0, 0.3);
+    transition: 0.2s all ease-in-out;
+}
+/* 暗黑模式按钮点击后的动画效果 */
+
+input[type="checkbox"]:checked + span{
+    background-color: var(--COLOR_RED);
+}
+/* 点击按钮后设置的颜色 */
+
+input[type="checkbox"]:checked + span::after {
+    transform: translateX(calc(var(--BUTTON_WIDTH) - var(--TOGGLE_DIAMETER) - var(--BUTTON_TOGGLE_OFFSET)));
+    box-shadow:calc(var(--TOGGLE_SHADOW_OFFSET) * -1) 0 calc(var(--TOGGLE_SHADOW_OFFSET) * 4) rgba(0, 0, 0, 0.3);
+}
+/* 点击按钮后的位置变化以及阴影体现 */
+
+input[type="checkbox"]:active + span::after {
+    width:var(--TOGGLE_WIDER);
+}
+/* 点击按钮中的宽度设置 */
+/* 这里是点击按钮过程中的过渡状态的一个动画，
+*  过渡状态即点击按钮但尚未松开鼠标的时候，
+*  按钮在此时会表现为过渡状态 */
+
+input[type="checkbox"]:checked:active + span::after {
+    transform: translateX(calc(var(--BUTTON_WIDTH) - var(--TOGGLE_WIDER) - var(--BUTTON_TOGGLE_OFFSET)));
+}
+/* 点击按钮后的再次点击按钮产生的过渡状态设置 */
+
+.menu-content>span:hover {
+    background-color: var(--COLOR_BG_MI_HOVER);
+    color: var(--FONT_COLOR_MI_HOVER);
+}
+/* 设置菜单内的子功能在hover时的动画效果 */
+
+#like{
+    overflow: auto;
+}
+/* 设置习惯列表在歌曲很多时候的处理方式 */
+
+.like-list{
+    width: 100%;  
+    padding: 0;  
+    margin: 0;
+}
+/* 喜欢列表格式的初始化 */
+
+.like-list li{
+    padding: 10px 0;
+    border-bottom: 1px solid var(--BORDER_RADIUS_MI);
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.4s;
+    border-radius: 15px;
+    font-size: 13px;
+}
+/* 歌曲列表内容的初始化 */
+
+.like-list li:hover,.like-list li:focus{
+    font-size: 16px;
+    color: var(--FONT_COLOR_MI_HOVER);
+    background-image:radial-gradient(var(--COLOR-BACKGROUND-SECOND),var(--COLOR-BACKGROUND-FIRST))
+}
+/* 歌曲列表内容的hover状态下的动画效果 */
+
+.playing,.notplaying {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--COLOR_MENU_BG);
+    display: flex;
+    justify-content: space-between;
+    transition: 0.3s;
+    border-radius: 6px;
+}
+/* 在喜欢列表中播放中以及未播放的歌曲的格式设置 */
+
+.playing:hover,.playing:focus,.notplaying:hover,.notplaying:focus{
+    color: var(--FONT_COLOR_MI_HOVER);
+    background-color:var(--COLOR_BG_MI_HOVER);
+}
+/* 喜欢列表中歌曲的鼠标动画效果 */
+
+.list-empty{
+    height: 85%;
+    width: 90%;
+    animation: swing 3s ease-in-out infinite;
+    color:var(--COLOR_BG_MI_HOVER);
+    font-weight: 600;
+}
+/* 空喜欢列表的初始化 */
+
+.set-line {
+    margin: 10px 0 40px 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--COLOR_LINE_BG);
+}
+/* 分割线的初始化 */
+
+
+
+@keyframes swing {  
+    0% { transform: rotate(0deg); }  
+    10% { transform: rotate(10deg); }  
+    30% { transform: rotate(0deg); }  
+    40% { transform: rotate(-10deg); }  
+    50% { transform: rotate(0deg); }  
+    100% { transform: rotate(0deg); }  
+}
+/* 喜欢列表为空时候的不同情况处理 */
+
+@keyframes move {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-650px);
+    }
+}
+/* 推荐列表图的滚动情况处理 */

@@ -1,0 +1,224 @@
+<!-- 项目名称：全部采用小写方式，以中线分隔。
+目录：采用小写方式，以中划线分隔，有复数结构要采用复数命名法。
+html，css，js，png文件命名：全部采用小写方式，以中线分隔。
+缩进：两个空格（一个tab）
+注释：在每一个块状元素、列表元素和表格元素后，加上一对 HTML 注释。
+引号：使用双引号""，而不适用单引号‘’
+
+CSS类名：全部采用小写方式，以中线分隔。
+CSS中ID号：采用驼峰式命名。
+CSS省略0后面的单位。
+尽量使用类选择器。
+
+方法名，参数名，成员变量，局部变量 ：采用小驼峰。
+增，删，改，查 的方法：必须用以下名称：add / update / delete / detail / get
+常量 ：命名全部大写，单词间用下划线隔开
+JS中的 字符串 必须使用单引号
+括号 ：下列关键字后必须有大括号（即使代码块的内容只有一行）：if, else, for, while, do, switch, try, catch, finally, with
+条件判断和循环最多三层
+this 的转换命名：对上下文 this 的引用只能使用 ’self’ 来命名
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <!-- 网页头部 -->
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./images/icon.jpg" type="image/x-icon">
+    <!-- 图标 -->
+
+    <title>幻 音 视 界</title>
+    <!-- 标题 -->
+
+    <link rel="stylesheet" href="./css/right-edge.css" />
+    <link rel="stylesheet" href="./css/left-edge.css">
+    <link rel="stylesheet" href="./css/music-video.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4608457_47aa4rbtvdr.css">
+    <!-- 与css连接 -->
+
+  </head>
+  <body>
+    <div class="menu-box">
+      <input type="checkbox" id="menu-btn">
+      <label for="menu-btn"><i class="iconfont icon-cebianlanshouqi"></i></label>
+      <!-- 呼出按钮 -->
+
+      <div class="menu">
+        <div class="menu-title"><h1>Menu</h1></div>
+        <!-- 菜单标题 -->
+
+        <div class="menu-item">
+          <input type="checkbox" id="menu-item1">
+          <label for="menu-item1">
+            <i class="menu-item-icon iconfont icon-zidingyitubiao"></i>
+            <span>recommends</span>
+            <!-- 标题 -->
+            <i class="menu-item-last iconfont icon-caret-down"></i>
+          </label>
+          <div class="menu-content">
+            <div class="recommends-part">
+              <div class="recommends-list">
+                <div class="recommends-box">
+                  <div class="img"><img src="./images/新地球.jpg" alt="新地球"></div>
+                  <div class="text"><h2>新地球</h2><p>纽约在海底的角落，阳光把大地变沙漠</p></div></div>
+                <div class="recommends-box">
+                  <div class="img"><img src="./images/一路生花.jpg" alt="一路生花"></div>
+                  <div class="text"><h2>一路生花</h2><p>我希望许过的愿望，一路生花</p></div></div>
+                <div class="recommends-box">
+                  <div class="img"><img src="../images/十年.jpg" alt="十年"></div>
+                  <div class="text"><h2>十年</h2><p>如果那两个字没有颤抖，我不会发现我难受</p></div></div>
+                <div class="recommends-box">
+                  <div class="img"><img src="./images/新地球.jpg" alt="新地球"></div>
+                  <div class="text"><h2>新地球</h2><p>纽约在海底的角落，阳光把大地变沙漠</p></div></div>
+                <div class="recommends-box">
+                  <div class="img"><img src="./images/一路生花.jpg" alt="一路生花"></div>
+                  <div class="text"><h2>一路生花</h2><p>我希望许过的愿望，一路生花</p></div></div>
+                <div class="recommends-box">
+                  <div class="img"><img src="../images/十年.jpg" alt="十年"></div>
+                  <div class="text"><h2>十年</h2><p>如果那两个字没有颤抖，我不会发现我难受</p></div></div>
+              </div>
+              <!-- 推荐列表 -->
+
+            </div>
+            <!-- 推荐内容 -->
+
+            <div class="recommends-words"><h2>Anywhere I go.</h2><p>Anywhere I go I'll miss U.</p></div></div>
+            <!-- 装饰性文字 -->
+        </div>
+        <!-- 推荐列表 -->
+
+        <div class="menu-item">
+          <input type="checkbox" id="menu-item2">
+          <label for="menu-item2">
+            <i class="menu-item-icon iconfont icon-xihuan1"></i>
+            <span>likes</span>
+            <i class="menu-item-last iconfont icon-caret-down"></i>
+          </label>
+          <div class="menu-content" id="like">
+            <ul class="like-list">
+              <li class="list-empty"></li>
+            </ul>
+          </div>
+        </div>
+        <!-- 喜欢列表 -->
+
+        <div class="menu-item">
+          <input type="checkbox" id="menu-item3">
+          <label for="menu-item3">
+            <i class="menu-item-icon iconfont icon-shezhi"></i>
+            <span>option</span>
+            <i class="menu-item-last iconfont icon-caret-down"></i>
+          </label>
+          <div class="menu-content">
+            <span class="clear-like">empty likes list</span>
+            <span class="container-button">background blur
+              <label for="toggle">
+                <input type="checkbox" id="toggle">
+                <span class="button-blur" id="blurBtn"></span>
+              </label>
+            </span>
+            <span class="container-background-button" >dark mode
+              <label>
+                <input type="checkbox" id="mode">
+                <span class="button-mode" id="theme-toggle-button"></span>
+              </label>
+            </span>
+          </div>
+        </div>
+        <!-- 设置列表 -->
+
+        <div class="set-line"></div>
+        <!-- 分割线 -->
+
+      </div>
+    </div>
+    <!-- 左侧边栏 -->
+
+    <div class="right-edge" id = "Redge">
+      <div class="player-warp" id = "warp">
+        <div class="player-info">
+          <div class="info">
+            <div class="name">打上花火</div>
+            <div class="singer-album">打上花火 - 打上花火 (初回限定盤)</div>
+            <div class="music-progress">
+              <div class="music-progress-top">
+                <span class="current-time">00:00</span>
+                <span class="time">04:49</span>
+              </div>
+              <div class="music-progress-bar">
+                <div class="music-progress-line"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 音乐播放器主体——上 -->
+
+        <div class="player-control">
+          <div class="cover">
+            <img src="./music-videos/打上花火.jpg"alt="
+            "/>
+          </div>
+          <div class="control">
+            <i id="prevBtn" class="fa fa-step-backward iconfont icon-shangyishouge"></i>
+            <i id="playBtn" class="fa fa-play iconfont icon-bofang"></i>
+            <i id="nextBtn" class="fa fa-step-forward iconfont icon-xiayishou"></i>
+            <i id="likeBtn" class="fa fa-unlike iconfont icon-xihuan1"></i>
+            <i id="openModal" class="fa fa-reorder iconfont icon-gedan"></i>
+          </div>
+        </div>
+        <!-- 音乐播放器主题——下 -->
+
+      </div>
+      <div class="mask-bg">
+        <video id="bgVideo" muted playsinline class="bg-video">
+          <source id="videoSource" src="./music-videos/打上花火.mp4" type="video/mp4">
+        </video>
+      </div>
+      <!-- 背景 -->
+
+      <div class="modal">
+        <div class="modal-box">
+          <div class="modal-box-top">
+            <div class="modal-title">Music List</div>
+            <div class="modal-close">
+              <i class="fa fa-remove iconfont icon-guanbi"></i>
+            </div>
+          </div>
+          <!-- 右侧歌单标题 -->
+
+          <div class="modal-wrapper">
+            <div class="search">
+              <div class="imgs"><img src="../images/search.png" alt="search"></div>
+              <input type="text" id="my-input" onkeyup="searchFunction()" placeholder="搜索..">
+            </div>
+            <!-- 搜索栏 -->
+
+            <ul class="music-list" id="myUL">
+            </ul>
+            <!-- 歌曲列表 -->
+
+          </div>
+          <h2>Anywhere I go.</h2><p>Anywhere I go I'll miss U.</p>
+          <!-- 装饰性文字 -->
+
+        </div>
+        <!-- 歌单列表——不含阴影 -->
+
+      </div>
+      <!-- 右侧边栏 -->
+
+    </div>
+    <!-- 右侧整体 -->
+
+    <audio src=""></audio>
+    <script src="https://cdn.staticfile.net/jquery/1.10.2/jquery.min.js"></script>
+    <script src="./js/music-videos.js"></script>
+    <script src="./js/play-music-triggers.js"></script>
+    <script src="./js/theme.js"></script>
+    <!-- 与js文件连接 -->
+
+  </body>
+</html>

@@ -1,0 +1,373 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --COLOR_MAIN:#fff;
+  --COLOR_DIVIDE:#ab0202;
+  --COLOR_HOVER_FRONT:#b3b3b0;
+  --COLOR_HOVER_BACK:black;
+  --COLOR_BACKGROUND_FIRST:#ccccca;
+  --COLOR_BACKGROUND_SECOND:#ccccca;
+  --COLOR_HOVER:#ab0202;
+}
+/*浅色主题*/
+
+.dark-theme{
+  --COLOR_MAIN:#232324;
+  --COLOR_DIVIDE:#9269de;
+  --COLOR_HOVER_FRONT:rgba(255, 255, 255, 0.628);
+  --COLOR_HOVER_BACK:#e7e7e7;
+  --COLOR_BACKGROUND_FIRST:grey;
+  --COLOR_BACKGROUND_SECOND:lightblue;
+  --COLOR_HOVER:rgb(0,0,0);
+}
+/*深色主题*/
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: var(--COLOR_MAIN);
+  transition: background-color var(--TRANSITION-MENU-TIME), color var(--TRANSITION-MENU-TIME) ;
+}
+/* 主体 */
+
+.right-edge{
+  width:100%;
+  height:100%;
+  display:inline-block;
+  justify-content: center;
+}
+/* 右边整体 */
+
+.player-warp {
+  width: 360px;
+  height:80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position:relative;
+  top:50%;
+  left:40%;
+}
+/* 播放器主体的初始化   */
+  
+/* .player-info {
+  flex:auto;
+  display:flex;
+  justify-self:right;
+  align-items:end;
+  flex-direction: column;
+  position:relative;
+} */
+/* 播放器主体——上部分的布局处理 */
+
+.player-warp .player-control {
+  width: 360px;
+  height: 80px;
+  padding: 20px 30px;
+  background-color: var(--COLOR_MAIN);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+}
+/* 播放器主体——下部分的初始化 */
+
+.player-control .cover {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--COLOR_MAIN);
+  margin-top: -60px;
+  padding: 6px;
+  position: relative;
+  animation: zhuan 5s infinite linear;
+  animation-play-state: paused;
+}
+/* 歌曲封面的初始化 */
+
+
+.player-control .cover::before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--COLOR_MAIN);
+}
+/* 封面覆盖效果的初始化 */
+
+.cover img {
+  width: 100%;
+  border-radius: 50%;
+}
+/* 封面图片的初始化 */
+
+.player-control .control {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* 音乐播放器主体——下部分的布局处理 */
+
+.control i {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 26px;
+  color: var(--COLOR_HOVER_FRONT);
+  cursor: pointer;
+  transition: all 0.4s;
+}
+/* 音乐播放器主体——下部分的按钮初始化 */
+
+.control i:hover {
+  border-radius: 6px;
+  background-color: rgba(71, 70, 70, 0.2);
+  color:var(--COLOR_HOVER_BACK);
+}
+/* 音乐播放器主体——下部分的按钮hover状态动画 */
+
+.player-warp .player-info {
+  width: 320px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  padding: 10px;
+  transform: translateX(-50%);
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  justify-content: flex-end;
+  opacity: 0;
+}
+/* 音乐播放器主体——上部分的初始化 */
+
+.player-info .info {
+  width: 60%;
+  font-size: 10px;
+}
+/* 歌曲信息栏的大小设置 */
+
+.info .name {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.info .singer-album {
+  color: #757474;
+  line-height: 20px;
+}
+
+.info .music-progress {
+  width: 100%;
+}
+/* 歌曲信息的字体排版设置 */
+
+.music-progress .music-progress-top {
+  display: flex;
+  justify-content: space-between;
+  color: #f2709b;
+  line-height: 20px;
+}
+/* 歌曲进度条上的时间显示设置 */
+
+.music-progress .music-progress-bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--COLOR_BACKGROUND_FIRST);
+  border-radius: 10px;
+  margin-top: 3px;
+}
+/* 歌曲进度条的初始化 */
+
+.music-progress-bar .music-progress-line {
+  width: 0;
+  height: 100%;
+  background-color: #f2709b;
+}
+/* 歌曲进度条随音乐播放的覆盖效果 */
+
+
+.mask-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  transition: all 1s;
+}
+/* 背景的初始化 */
+
+.modal {
+  color: var(--COLOR_HOVER_BACK);
+  font-family: "Trebuchet MS", "楷体" ,  "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(70deg, rgba(0,0,0,0), rgba(0,0,0,2));
+  position:fixed;
+  top: 0;
+  left: 100%;
+  display: block;
+}
+/* 歌单列表整体的初始化 */
+
+.modal .modal-box {
+  width: 25%;
+  height: 100%;
+  padding: 20px;
+  background-color: var(--COLOR_MAIN);
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 25px;
+}
+/* 歌单列表的初始化 */
+
+.modal-box .modal-box-top {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+/* 歌单列表标题的初始化 */
+
+.modal-box-top .modal-close {
+  font-size: 20px;
+  cursor: pointer;
+  transition:0.4s;
+}
+/* 关闭歌单列表按钮的初始化 */
+
+.modal-box-top .modal-close:hover {
+  transform: rotate(180deg);
+}
+/* 关闭歌单列表按钮在hover状态下的初始化 */
+
+.modal-box .modal-wrapper {
+  width: 100%;
+  height: 75%;
+  overflow-y: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+/* 歌单列表本身的初始化 */
+
+.search{
+  width:100%;
+  height:5%;
+  display:flex;
+  background-color:var(--COLOR_BACKGROUND_FIRST);
+  border-radius: 20px;
+}
+/* 搜索栏的初始化 */
+
+.search .imgs{
+  width: 20px;
+  height:20px;
+  margin-left: 5px;
+  margin-top:6px;
+  margin-bottom: 12px;
+  margin-right: 5px;
+}
+/* 搜索栏左侧小图标的大小和位置配置 */
+
+.search .imgs img{
+  width:100%;
+  height:100%;
+}
+/* 搜索栏图片的大小控制 */
+
+#my-input {
+  width: 80%;
+  padding-top: 12px;
+  font-family: "Trebuchet MS", "楷体" ,  "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 90%;
+  font-size: 16px;
+  padding: 12px 5px 12px 5px;
+  border: 2px solid var(--COLOR_DIVIDE); 
+  margin-bottom: 12px;
+  margin-top: 3px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+/* 搜索栏中的输入框的格式设置 */
+
+.modal-wrapper .music-list {
+  margin-top: 10px;
+}
+/* 歌单列表的上边界设置 */
+
+.music-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgb(186, 182, 182);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+  border-radius: 15px;
+  font-size: 13px;
+}
+/* 歌单列表中列表内容的设置 */
+
+.music-list li:hover,.music-list li:focus{
+  font-size: 16px;
+  color: var(--COLOR_HOVER);
+  background-image:radial-gradient(var(--COLOR_BACKGROUND_SECOND),var(--COLOR_BACKGROUND_FIRST))
+}
+/* 对表中内容hover状态下的动画效果处理 */
+
+.play-circle {
+  margin-left:10px;
+  margin-right: 20px;
+  transition: transform 0.4s;
+  cursor: pointer;
+}
+/* 列表中的播放按钮的初始化 */
+
+.play-circle:hover {
+  background-color: var(--COLOR_HOVER_FRONT);
+  border-radius: 5px;
+  transform: scale(1.5) rotate(360deg);
+}
+/* 列表中播放按钮的hover状态的动画效果 */
+
+.playing {
+  color: var(--COLOR_DIVIDE);
+}
+/* 当前歌曲的颜色设置 */
+
+@keyframes zhuan {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* 旋转动画 */

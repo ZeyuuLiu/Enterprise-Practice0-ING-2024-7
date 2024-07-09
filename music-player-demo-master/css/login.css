@@ -1,0 +1,249 @@
+/* 定义自定义字体 */
+@font-face {
+  font-family: 'MaShanZheng';
+  src: url('../ttf/MaShanZheng-Regular.ttf') format('truetype');
+}
+
+
+.video-container {
+  position: fixed;  /* 固定定位，覆盖整个窗口 */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;/* 设置z-index，将图层进行分级 */
+}
+/* 背景视频容器样式 */
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* 背景视频样式 */
+
+.main-window {
+  font-family: 'MaShanZheng', sans-serif;  /* 使用自定义字体，使界面更加美观 */
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);  /* 居中定位 */
+  width: 400px;
+  height: 450px;
+  background: linear-gradient(135deg, rgba(168, 237, 234, 0.8) 0%, rgba(254, 214, 227, 0.8) 100%);  /* 背景渐变色 */
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* 阴影效果 */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;  /* 垂直居下 */
+  padding-bottom: 30px;
+  align-items: center;
+  z-index: 1000;  /* 在层级上位于最顶层 */
+}
+/* 登录窗口样式 */
+
+.register-title {
+  display: block;
+  margin-bottom: 80px;  /* 底部外边距 */
+  font-size: 36px;  /* 字体大小 */
+}
+/* 登录窗口标题样式 */
+
+.username,
+.password {
+  width: 300px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  padding: 0 15px;
+  margin: 10px 0;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* 阴影效果 */
+  transition: all 0.3s ease;  /* 过渡效果 */
+}
+/* 用户名和密码输入框样式 */
+
+.username:focus,
+.password:focus {
+  border-color: #6200ea;  /* 聚焦时边框颜色 */
+  box-shadow: 0 2px 4px rgba(98, 0, 234, 0.2);  /* 聚焦时阴影效果 */
+}
+
+.username::placeholder,
+.password::placeholder {
+  color: #aaa;
+}
+
+.username:hover,
+.password:hover {
+  border-color: #6200ea;  /* 悬停时边框颜色 */
+}
+
+
+.btn-submit {
+  width: 335px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  padding: 0 15px;
+  margin: 10px 0;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* 阴影效果 */
+  background-color: #6200ea;
+  color: #fff;
+  transition: all 0.3s ease;  /* 过渡效果 */
+}
+/* 登录按钮样式 */
+
+.btn-submit:focus {
+  box-shadow: 0 2px 4px rgba(98, 0, 234, 0.2);  /* 聚焦时阴影效果 */
+}
+
+.btn-submit:hover {
+  border-color: cadetblue;  /* 悬停时边框颜色 */
+  background-color: #a6b3ff;  /* 悬停时背景颜色 */
+}
+
+
+.check-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 300px;
+  margin: 10px 0;
+}
+/* 额外操作功能样式 */
+
+.forget-password {
+  cursor: pointer;  /* 光标样式为手型 */
+  font-size: 14px;
+  color: black;
+  margin-left: 5px;
+}
+/* 忘记密码功能样式 */
+
+.register-user {
+  cursor: pointer;  /* 光标样式为手型 */
+  font-size: 14px;
+  color: black;
+  margin-left: auto;
+}
+/* 注册用户功能样式 */
+
+.register-user:hover,
+.forget-password:hover {
+  color: #6200ea;  /* 悬停时文本颜色 */
+  text-decoration: underline;  /* 下划线效果 */
+  text-decoration-color: #6200ea;  /* 下划线颜色 */
+}
+
+
+.set-password-window {
+  font-family: 'MaShanZheng', sans-serif;  /* 使用自定义字体 */
+  position: fixed;  /* 固定定位 */
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);  /* 居中定位 */
+  width: 350px;
+  height: auto;
+  background: linear-gradient(135deg, #a8edeb 0%, #fed6e3 100%);  /* 背景渐变色 */
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* 阴影效果 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  align-items: center;
+  z-index: 1000;
+  display: none;  /* 初始隐藏，便于之后使用JavaScript调出 */
+}
+/* 设置密码窗口样式 */
+
+.set-password-title {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 36px;
+  color: #333;
+  text-align: center;  /* 文字居中对齐 */
+
+}
+/* 设置密码窗口标题样式 */
+
+.set-username,
+.set-email,
+.set-password {
+  width: 300px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  padding: 0 15px;
+  margin: 10px 0;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* 阴影效果 */
+  transition: all 0.3s ease;  /* 过渡效果 */
+}
+/* 设置输入框样式 */
+
+.set-username:focus,
+.set-email:focus,
+.set-password:focus {
+  border-color: #6200ea;  /* 聚焦时边框颜色 */
+  box-shadow: 0 2px 4px rgba(98, 0, 234, 0.2);  /* 聚焦时阴影效果 */
+}
+
+.set-username::placeholder,
+.set-email::placeholder,
+.set-password::placeholder {
+  color: #aaa;
+}
+
+.set-username:hover,
+.set-email:hover,
+.set-password:hover {
+  border-color: #6200ea;  /* 悬停时边框颜色 */
+
+}
+
+
+.set-btn-submit {
+  width: 335px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  padding: 0 15px;
+  margin: 10px 0;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* 阴影效果 */
+  background-color: #6200ea;
+  color: #fff;
+  transition: all 0.3s ease;  /* 过渡效果 */
+}
+/* 设置提交按钮样式 */
+
+.set-btn-submit:focus {
+  box-shadow: 0 2px 4px rgba(98, 0, 234, 0.2);  /* 聚焦时阴影效果 */
+}
+
+.set-btn-submit:hover {
+  border-color: cadetblue;  /* 悬停时边框颜色 */
+  background-color: #a6b3ff;  /* 悬停时背景颜色 */
+}
+
+.check-container {
+  margin-top: 15px;
+}
+
+
+.back-register {
+  color: black;  /* 文本颜色 */
+  cursor: pointer;  /* 光标样式为手型 */
+}
+/* 返回登录功能样式 */
+
+.back-register:hover {
+  text-decoration: underline;  /* 悬停时添加下划线 */
+  color: #0056b3;  /* 悬停时文本颜色 */
+}
